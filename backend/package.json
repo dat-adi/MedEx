@@ -1,0 +1,27 @@
+{
+  "name": "ssa",
+  "version": "1.0.0",
+  "description": "A simple shopping application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dat-adi/SSA.git"
+  },
+  "keywords": [
+    "shopping",
+    "FERN"
+  ],
+  "author": "G V Datta Adithya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dat-adi/SSA/issues"
+  },
+  "homepage": "https://github.com/dat-adi/SSA#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "firebase-admin": "^10.0.0"
+  }
+}
