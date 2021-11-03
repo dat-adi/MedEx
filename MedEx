@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-11-03T06:22:57.708Z" agent="5.0 (X11)" etag="yBQZozDNXnJi7wzdCXhC" version="15.6.6" type="github" pages="8">
+<mxfile host="app.diagrams.net" modified="2021-11-03T06:26:10.892Z" agent="5.0 (X11)" etag="yWtNmBHR-ZC0PPIFdPAv" version="15.6.6" type="github" pages="8">
   <diagram id="VANpuO7s5XrBcRgPkIjI" name="Architecture Diagram">
     <mxGraphModel dx="1406" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -116,6 +116,15 @@
             <mxPoint x="560" y="760" as="sourcePoint" />
             <mxPoint x="640" y="710" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="XDO6Ewz4JZGNnjqhxg-1-28" value="UI" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="780" y="210" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XDO6Ewz4JZGNnjqhxg-1-29" value="DB" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="780" y="1050" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="XDO6Ewz4JZGNnjqhxg-1-31" value="Logic" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="780" y="730" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
