@@ -1,0 +1,6 @@
+- in: path
+  name: medicineId
+  schema:
+    type: integer
+  required: true
+  description: Numeric ID of the medicine.

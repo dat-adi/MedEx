@@ -15,7 +15,7 @@
             schema:
               type: array
               items:
-                - "$ref": "./components/schemas/medicine.yaml"
+                - "$ref": "./components/api/v1/schemas/medicine.yaml"
       "400":
         description: Retrieval has failed
   post:
@@ -29,7 +29,7 @@
     content:
       application/json:
         schema:
-          $ref: "./components/schemas/medicine.yaml"
+          $ref: "./components/api/v1/schemas/medicine.yaml"
     responses:
       "200":
         description: Medicine has been added.
@@ -57,7 +57,7 @@
         content:
           application/json:
             schema:
-              $ref: "./components/schemas/medicine.yaml"
+              $ref: "./components/api/v1/schemas/medicine.yaml"
       "400":
         description: Could not find the medicine.
   patch:
@@ -82,7 +82,7 @@
       content:
         application/json:
           schema:
-            $ref: "./components/schemas/medicine.yaml"
+            $ref: "./components/api/v1/schemas/medicine.yaml"
     responses:
       "200":
         description: Updated the medicine details successfully.
@@ -108,11 +108,11 @@
       "400":
         description: Medicine could not be deleted.
 
-# This can definitely be upgraded into profile/{consumer, medoxer, supplier} later on.
-/api/v1/profile:
+# This can definitely be upgraded into user/{consumer, medoxer, supplier} later on.
+/api/v1/user:
   post:
     tags:
-      - profile
+      - user
     summary: Create a user.
     description: |
       This endpoint is used to create a user.
@@ -122,77 +122,62 @@
       content:
         application/json:
           schema:
-            $ref: "./components/schemas/profile.yaml"
+            $ref: "./components/api/v1/schemas/user.yaml"
     responses:
       "201":
         description: Successfully created a user.
       "400":
         description: Could not create a user.
-/api/v1/profile/{profileId}:
+/api/v1/user/{userId}:
   get:
     tags:
-      - profile
+      - user
     summary: Get the user details.
     description: |
       This endpoint is used to get the details of a user.
     parameters:
-      - in: path
-        name: profileId
-        schema:
-          type: integer
-        required: true
-        description: Numeric ID of the user.
+      $ref: "./components/api/v1/parameters/userId.yaml"
     responses:
       "200":
         description: User details have been retrieved.
         content:
           application/json:
             schema:
-              $ref: "./components/schemas/profile.yaml"
+              $ref: "./components/api/v1/schemas/user.yaml"
       "400":
         description: User details could not be retrieved.
   patch:
     tags:
-      - profile
+      - user
     summary: Update user
     description: |
       This endpoint is used to update the details of a user.
     parameters:
-      - in: path
-        name: profileId
-        schema:
-          type: integer
-        required: true
-        description: Numeric ID of the user.
+      $ref: "./components/api/v1/parameters/userId.yaml"
     requestBody:
       description: User fields and values
       required: false
       content:
         application/json:
           schema:
-            $ref: "./components/schemas/profile.yaml"
+            $ref: "./components/api/v1/schemas/user.yaml"
     responses:
       "200":
         description: Updated the details of the user successfully.
         content:
           application/json:
             schema:
-              $ref: "./components/schemas/profile.yaml"
+              $ref: "./components/api/v1/schemas/user.yaml"
       "404":
         description: User could not be found.
   delete:
     tags:
-      - profile
+      - user
     summary: Delete the user
     description: |
       This endpoint is used to delete a user from the database.
     parameters:
-      - in: path
-        name: profileId
-        schema:
-          type: integer
-        required: true
-        description: Numeric ID of the user.
+      $ref: "./components/api/v1/parameters/userId.yaml"
     responses:
       "200": 
         description: Successful deletion of the user.
