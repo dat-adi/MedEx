@@ -1,0 +1,9 @@
+openapi: "3.0.0"
+info:
+  version: 0.1.0
+  title: MedEx
+  description: |
+    A web application designed to provide a clean Medical Shopping experience.
+    More information can be found on [GitHub](https://github.com/dat-adi/MedEx).
+paths:
+  $ref: "./spec.yaml"

@@ -1,0 +1,153 @@
+/api/v1/medication:
+  get:
+    tags:
+      - medication
+    summary: Get all the medicines.
+    description: |
+      Retrieves whatever medication is present in the database.
+      This endpoint is used to retrieve records from the database.
+    operationId: getAllMedicines
+    responses:
+      "200":
+        description: Successful retrieval
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                - "$ref": "./components/schemas/medicine.yaml"
+      "400":
+        description: Retrieval has failed
+  post:
+    tags:
+      - medication
+    summary: Add a medicine into the database.
+    description: |
+      Creates and sends a POST request to add a medicine into the database.
+      This endpoint is used to add medicines into the database.
+    operationId: createMedicine
+    content:
+      application/json:
+        schema:
+          $ref: "./components/schemas/medicine.yaml"
+    responses:
+      "200":
+        description: Medicine has been added.
+      "400":
+        description: Medicine was unable to be added into the database.
+/api/v1/medication/{medicationId}:
+  get:
+    tags:
+      - medication
+    summary: Get the medicine.
+    description: |
+      GET the details of the medicine in the database.
+      This endpoint is used for the retrieval of the medicine from the database
+    operationId: getMedicine
+    parameters:
+      - in: path
+        name: medicationId
+        schema:
+          type: integer
+        required: true
+        description: Numeric ID of the medicine
+    responses:
+      "200":
+        description: Get the medicine details of the requested medicine.
+        content:
+          application/json:
+            schema:
+              $ref: "./components/schemas/medicine.yaml"
+      "400":
+        description: Could not find the medicine.
+  patch:
+    tags:
+      - medication
+    summary: Update the medicine.
+    description: |
+      Update and send a PATCH request to update the medicine in the database.
+      Might wish to add authentication and stuff into this as well.
+      This endpoint is used for updating the medicine in the database.
+    operationId: updateMedicine
+    parameters:
+      - in: path
+        name: medicationId
+        schema:
+          type: integer
+        required: true
+        description: Numeric ID of the medicine
+    requestBody:
+      description: Medicine object to update the medication with
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "./components/schemas/medicine.yaml"
+    responses:
+      "200":
+        description: Updated the medicine details successfully.
+      "400":
+        description: Medicine could not be updated.
+  delete:
+    tags:
+      - medication
+    summary: Delete the medicine.
+    description: |
+      Delete the medicine using a DELETE request.
+      This endpoint is used for deletion of the medicine in the database.
+    parameters:
+      - in: path
+        name: medicationId
+        schema:
+          type: integer
+        required: true
+        description: Numeric ID of the medicine
+    responses:
+      "200":
+        description: Medicine has been deleted.
+      "400":
+        description: Medicine could not be deleted.
+
+# This can definitely be upgraded into profile/{consumer, medoxer, supplier} later on.
+/api/v1/profile:
+  post:
+    tags:
+      - profile
+    summary: Create a user.
+    description: |
+      This endpoint is used to create a user.
+    requestBody:
+      description: User fields and values
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "./components/schemas/profile.yaml"
+    responses:
+      "201":
+        description: Successfully created a user.
+      "400":
+        description: Could not create a user.
+/api/v1/profile/{profileId}:
+  get:
+    tags:
+      - profile
+    summary: Get the user details.
+    description: |
+      This endpoint is used to get the details of a user.
+    parameters:
+      - in: path
+        name: profileId
+        schema:
+          type: integer
+        required: true
+        description: Numeric ID of the user.
+    responses:
+      "200":
+        description: User details have been retrieved.
+        content:
+          application/json:
+            schema:
+              $ref: "./components/schemas/profile.yaml"
+      "400":
+        description: User details could not be retrieved.
