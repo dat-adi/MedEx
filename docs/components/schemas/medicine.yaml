@@ -1,0 +1,14 @@
+type: object
+properties:
+  name:
+    type: string
+  information:
+    type: string
+  manufacturer:
+    type: string
+  manufactureDate:
+    type: Date
+  expiryDate:
+    type: Date
+  batchNumber:
+    type: integer

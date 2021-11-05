@@ -151,3 +151,50 @@
               $ref: "./components/schemas/profile.yaml"
       "400":
         description: User details could not be retrieved.
+  patch:
+    tags:
+      - profile
+    summary: Update user
+    description: |
+      This endpoint is used to update the details of a user.
+    parameters:
+      - in: path
+        name: profileId
+        schema:
+          type: integer
+        required: true
+        description: Numeric ID of the user.
+    requestBody:
+      description: User fields and values
+      required: false
+      content:
+        application/json:
+          schema:
+            $ref: "./components/schemas/profile.yaml"
+    responses:
+      "200":
+        description: Updated the details of the user successfully.
+        content:
+          application/json:
+            schema:
+              $ref: "./components/schemas/profile.yaml"
+      "404":
+        description: User could not be found.
+  delete:
+    tags:
+      - profile
+    summary: Delete the user
+    description: |
+      This endpoint is used to delete a user from the database.
+    parameters:
+      - in: path
+        name: profileId
+        schema:
+          type: integer
+        required: true
+        description: Numeric ID of the user.
+    responses:
+      "200": 
+        description: Successful deletion of the user.
+      "404":
+        description: User could not be found.
