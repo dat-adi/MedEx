@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 
+app.use(express.json());
+
 // Set up testing routes
 app.get('/', function(req, res){
     return res.json({
