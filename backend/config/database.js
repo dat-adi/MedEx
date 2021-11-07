@@ -3,19 +3,17 @@ const admin = require("firebase-admin");
 const dotenv = require("dotenv");
 const { join, resolve } = require("path");
 
-const connectDatabase = () => {
-    dotenv.config({
-        path: resolve(join(__dirname, "/config.env")),
-    });
+dotenv.config({
+    path: resolve(join(__dirname, "/config.env")),
+});
 
-    const serviceAccount = process.env.ADMINSDK;
+const serviceAccount = process.env.ADMIN_SDK;
 
-    admin.initializeApp({
-        credential: admin.credential.cert(`./config/${serviceAccount}`),
-        databaseURL: process.env.DATABASEURL
-    }).database();
+admin.initializeApp({
+    credential: admin.credential.cert(`./config/${serviceAccount}`),
+    databaseURL: process.env.DATABASE_URL
+});
 
-    console.log("Firebase is connected.");
-}
+const database = admin.database();
 
-module.exports = connectDatabase;
+module.exports = database;
