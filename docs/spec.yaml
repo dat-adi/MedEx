@@ -31,7 +31,7 @@
         schema:
           $ref: "./components/api/v1/schemas/medicine.yaml"
     responses:
-      "200":
+      "201":
         description: Medicine has been added.
       "400":
         description: Medicine was unable to be added into the database.
@@ -58,8 +58,8 @@
           application/json:
             schema:
               $ref: "./components/api/v1/schemas/medicine.yaml"
-      "400":
-        description: Could not find the medicine.
+      "404":
+        description: Medicine could not be found.
   patch:
     tags:
       - medication
@@ -88,6 +88,8 @@
         description: Updated the medicine details successfully.
       "400":
         description: Medicine could not be updated.
+      "404":
+        description: Medicine could not be found.
   delete:
     tags:
       - medication
@@ -107,6 +109,8 @@
         description: Medicine has been deleted.
       "400":
         description: Medicine could not be deleted.
+      "404":
+        description: Medicine could not found.
 
 # This can definitely be upgraded into user/{consumer, medoxer, supplier} later on.
 /api/v1/user:
