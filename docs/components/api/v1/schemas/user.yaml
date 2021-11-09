@@ -4,4 +4,11 @@ properties:
     type: string
   age:
     type: integer
-
+  address:
+    type: string
+  email:
+    type: string
+  contactNumber:
+    type: integer
+  aadhaarNumber:
+    type: integer
