@@ -1,27 +1,13 @@
 const express = require("express");
 const router = express.Router();
 
-const {getAllMedicines, createMedicine} = "../controllers/medicationController";
-// const {getMedicine, updateMedicine, deleteMedicine} = "../controllers/medicationController";
-// 
-router.route("/medication").get(getAllMedicines);
-// router.route("/medication").post(createMedicine);
-// router.route("/medication/:medicationId").get(getMedicine).patch(updateMedicine).delete(deleteMedicine);
+// Importing the required controllers from the controllers folder
+const {getAllMedicines, createMedicine} = require("../controllers/medicationController");
+const {getMedicine, updateMedicine, deleteMedicine} = require("../controllers/medicationController");
 
-// Set up testing routes
+// Calling the respective controllers for the required operations
+router.route("/medication").get(getAllMedicines).post(createMedicine);
+router.route("/medication/:medicationId").get(getMedicine).put(updateMedicine).delete(deleteMedicine);
 
-router.get('/', function(req, res){
-    return res.json({
-        message: "This is supposed to be a GET request, I think?",
-        success: true
-    })
-});
-
-router.post('/', function(req, res){
-    return res.json({
-        message: "This is supposed to be a POST request, I think?",
-        success: true
-    })
-});
-
+// Exporting the router
 module.exports = router;
