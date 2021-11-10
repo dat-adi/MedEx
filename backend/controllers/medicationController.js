@@ -9,7 +9,6 @@ exports.getAllMedicines = catchAsyncErrors(async (req, res, next) => {
     const medicines = await Medicine.find();
 
     // Sending a success response
-    console.log(res);
     res.status(200).json({
         success: true,
         medicines
