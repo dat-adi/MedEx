@@ -1,19 +1,14 @@
 const express = require("express");
 const app = express();
 
-// Set up testing routes
-app.get('/', function(req, res){
-    return res.json({
-        message: "This is supposed to be a GET request, I think?",
-        success: true
-    })
-});
+app.use(express.json());
 
-app.post('/', function(req, res){
-    return res.json({
-        message: "This is supposed to be a POST request, I think?",
-        success: true
-    })
-});
+// Importing the routes
+const medication = require("./routes/medication");
+const user = require("./routes/user");
+
+// Utilizing the required routes
+app.use("/api/v1", medication);
+app.use("/api/v1", user);
 
 module.exports = app;
