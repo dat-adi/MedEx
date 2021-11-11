@@ -1,6 +1,5 @@
 import { useState,useEffect } from 'react';
 import {useRouter} from 'next/router';
-import React from 'react';
 import axios from 'axios';
 import Link from 'next/link'
 
@@ -15,9 +14,12 @@ const create = () => {
     const [password,setPassword] = useState("");
     const [valid,setValid] = useState(false);
 
-    useEffect(() => {
-        router.push('/login')
-    },valid)
+    if(valid == true){
+        useEffect(() => {
+            router.push('/login')
+        },[valid])
+    }
+
 
     async function handleSubmit(e) {
         let Valid = false;
@@ -37,7 +39,7 @@ const create = () => {
             //should add validation
             alert("Account created successfully");
         }else{
-           alert("Enter all the Required text feilds");
+            alert("Enter all the Required text feilds");
         }
            
     }
