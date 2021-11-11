@@ -1,7 +1,9 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 
 // Importing the routes
 const medication = require("./routes/medication");
