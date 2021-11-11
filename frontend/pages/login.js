@@ -1,25 +1,34 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
+import {useRouter} from 'next/router';
+import Link from 'next/link';
 import axios from 'axios';
 
-axios.defaults.baseURL = "http://localhost:4000/"
+axios.defaults.baseURL = "http://localhost:4000/api/v1/"
 
 const login = () => {
+    const router = useRouter();
 
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+    const [valid,setValid] = useState(false);
+
+    useEffect(() => {
+        router.push('/dashboard')
+    },valid)
 
     function handleSubmit(e) {
         e.preventDefault();
         console.log(email,password);
-        axios.post('/user/register',{
+        axios.post('/user/login',{
             email: email,
             password: password,
         }).then(function (response) {
             console.log(response);
+            setValid(true);
         }).catch(function (error) {
             console.log(error);
-        });
-        
+        });    
+        //should add validation
     }
 
     function handleEmailChange(e){
@@ -55,6 +64,11 @@ const login = () => {
                     <button type="submit" className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                         Login
                     </button>
+                    <Link href = "/create">
+                        <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            Create Account
+                        </button>
+                    </Link>
                     </div>
                 </form>
             </div>
