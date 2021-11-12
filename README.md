@@ -1,5 +1,5 @@
-# SSA
-A simple shopping application built for a Software Engineering Lab Course.
+# MedEx
+A simple medical delivery platform, built using the MERN Stack.
 
 ## Instructions to commit to the repository
 - [ ] Create a new branch and add in your features in the form of commits.
