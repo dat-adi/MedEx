@@ -1,19 +1,18 @@
 const express = require("express");
+const cors = require('cors')
 const app = express();
+const cookieParser = require("cookie-parser");
 
-// Set up testing routes
-app.get('/', function(req, res){
-    return res.json({
-        message: "This is supposed to be a GET request, I think?",
-        success: true
-    })
-});
+app.use(express.json());
+app.use(cors());
+app.use(cookieParser());
 
-app.post('/', function(req, res){
-    return res.json({
-        message: "This is supposed to be a POST request, I think?",
-        success: true
-    })
-});
+// Importing the routes
+const medication = require("./routes/medication");
+const user = require("./routes/user");
+
+// Utilizing the required routes
+app.use("/api/v1", medication);
+app.use("/api/v1", user);
 
 module.exports = app;
