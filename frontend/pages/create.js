@@ -14,11 +14,11 @@ const create = () => {
     const [password,setPassword] = useState("");
     const [valid,setValid] = useState(false);
 
-    if(valid == true){
-        useEffect(() => {
+    useEffect(() => {
+        if(valid == true){
             router.push('/login')
-        },[valid])
-    }
+        }
+    },[valid]);
 
 
     async function handleSubmit(e) {
