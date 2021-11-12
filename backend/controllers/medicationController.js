@@ -29,7 +29,6 @@ exports.createMedicine = catchAsyncErrors(async (req, res, next) => {
 
 // Get a medicine by ID => /api/v1/medication/{medicationId}
 exports.getMedicine = catchAsyncErrors(async (req, res, next) => {
-    console.log("Params", req);
     let medicine = await Medicine.findById(req.params.medicationId);
     if(!medicine){
         return next(new ErrorHandler("Medicine not found", 404));

@@ -1,9 +1,11 @@
 const express = require("express");
-var cors = require('cors')
+const cors = require('cors')
 const app = express();
+const cookieParser = require("cookie-parser");
 
-app.use(cors())
 app.use(express.json());
+app.use(cors());
+app.use(cookieParser());
 
 // Importing the routes
 const medication = require("./routes/medication");
