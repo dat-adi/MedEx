@@ -16,9 +16,9 @@ const create = () => {
 
     useEffect(() => {
         if(valid == true){
-            router.push('/login')
+            router.push('/login');
         }
-    },[valid]);
+    },[]);
 
 
     async function handleSubmit(e) {
