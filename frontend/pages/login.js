@@ -12,11 +12,11 @@ const login = () => {
     const [password,setPassword] = useState("");
     const [valid,setValid] = useState(false);
 
-    if(valid == true){
-        useEffect(() => {
-            router.push('/dashboard')
-        },[valid])
-    }
+    useEffect(() => {
+        if(valid == true){
+            router.push('/dashboard');
+        }
+    },[])
 
     function handleSubmit(e) {
         e.preventDefault();
