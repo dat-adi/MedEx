@@ -12,9 +12,9 @@ router.route("/medication").get(getAllMedicines);
 router.route("/medication")
     .post(isAuthenticatedMedoxer, authorizeRoles("medoxer"), createMedicine);
 router.route("/medication/:medicationId")
-    .get(isAuthenticatedUser, getMedicine)
-    .put(isAuthenticatedUser, updateMedicine)
-    .delete(isAuthenticatedUser, deleteMedicine);
+    .get(isAuthenticatedUser || isAuthenticatedMedoxer, getMedicine)
+    .put(isAuthenticatedUser || isAuthenticatedMedoxer, updateMedicine)
+    .delete(isAuthenticatedUser || isAuthenticatedMedoxer, deleteMedicine);
 
 // Exporting the router
 module.exports = router;
