@@ -30,7 +30,7 @@ exports.createMedicine = catchAsyncErrors(async (req, res, next) => {
 // Get a medicine by ID => /api/v1/medication/{medicationId}
 exports.getMedicine = catchAsyncErrors(async (req, res, next) => {
     let medicine = await Medicine.findById(req.params.medicationId);
-    if(!medicine){
+    if (!medicine) {
         return next(new ErrorHandler("Medicine not found", 404));
     }
 
@@ -44,7 +44,7 @@ exports.getMedicine = catchAsyncErrors(async (req, res, next) => {
 // Update a medicine by ID => /api/v1/medication/{medicationId}
 exports.updateMedicine = catchAsyncErrors(async (req, res, next) => {
     let medicine = await Medicine.findById(req.params.medicationId);
-    if(!medicine){
+    if (!medicine) {
         return next(new ErrorHandler("Medicine not found", 404));
     }
 
@@ -64,7 +64,7 @@ exports.updateMedicine = catchAsyncErrors(async (req, res, next) => {
 // Delete a medicine => /api/v1/medication/{medicationId}
 exports.deleteMedicine = catchAsyncErrors(async (req, res, next) => {
     let medicine = await Medicine.findById(req.params.medicationId);
-    if(!medicine){
+    if (!medicine) {
         return next(new ErrorHandler("Medicine not found", 404));
     }
 

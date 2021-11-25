@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const { isAuthenticatedUser, authorizeRoles } = require("../middlewares/auth");
+const { isAuthenticatedUser, isAuthenticatedMedoxer, authorizeRoles } = require("../middlewares/auth");
+// The Authenticated Medoxer feature allows for the faculty system in VISP to have multiple roles as well, comprising of adsw, ddsw, et cetera. 
 
 // Importing the required controllers from the controllers folder
 const {getAllMedicines, createMedicine} = require("../controllers/medicationController");
@@ -9,7 +10,7 @@ const {getMedicine, updateMedicine, deleteMedicine} = require("../controllers/me
 // Calling the respective controllers for the required operations
 router.route("/medication").get(getAllMedicines);
 router.route("/medication")
-    .post(isAuthenticatedUser, createMedicine);
+    .post(isAuthenticatedMedoxer, authorizeRoles("medoxer"), createMedicine);
 router.route("/medication/:medicationId")
     .get(isAuthenticatedUser, getMedicine)
     .put(isAuthenticatedUser, updateMedicine)
