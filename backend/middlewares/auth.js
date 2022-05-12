@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Medoxer = require("../models/medoxer");
 const jwt = require("jsonwebtoken");
 const catchAsyncErrors = require("./catchAsyncErrors");
 const ErrorHandler = require("../utils/errorHandler");
@@ -14,6 +15,20 @@ exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = await User.findById(decoded.id);
+
+    next();
+});
+
+exports.isAuthenticatedMedoxer = catchAsyncErrors(async (req, res, next) => {
+    const { token } = req.cookies;
+    if (!token) {
+        return next(
+            new ErrorHandler("Login please", 401)
+        );
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = await Medoxer.findById(decoded.id);
 
     next();
 });

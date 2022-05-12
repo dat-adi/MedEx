@@ -9,10 +9,10 @@ app.use(cookieParser());
 
 // Importing the routes
 const medication = require("./routes/medication");
-const user = require("./routes/user");
+const auth = require("./routes/auth");
 
 // Utilizing the required routes
 app.use("/api/v1", medication);
-app.use("/api/v1", user);
+app.use("/api/v1", auth);
 
 module.exports = app;
