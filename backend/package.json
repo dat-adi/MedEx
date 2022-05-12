@@ -4,7 +4,8 @@
   "description": "Medication and Delivery, we got 'em both.",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
+    "prod": "NODE_ENV=PRODUCTION nodemon server.js",
+    "dev": "NODE_ENV=DEVELOPMENT nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
